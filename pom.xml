@@ -7,17 +7,16 @@
     <groupId>WordCountSpark</groupId>
     <artifactId>WordCountSpark</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <hadoop.version>2.4.0</hadoop.version>
+        <eshadoop.version>2.0.1</eshadoop.version>
+        <spark.version>1.0.0</spark.version>
     </properties>
-
     <dependencies>
-
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.10</artifactId>
-            <version>1.0.0</version>
+            <version>${spark.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.hadoop</groupId>
@@ -35,26 +34,29 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoop.version}</version>
+            <!--
             <exclusions>
                 <exclusion>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
+            -->
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-mapreduce-client-app</artifactId>
             <version>${hadoop.version}</version>
         </dependency>
-
-        <!--
-         <dependency>
-             <groupId>org.apache.hadoop</groupId>
-             <artifactId>hadoop-hdfs</artifactId>
-             <version>${hadoop.version}</version>
-             <scope>provided</scope>
-         </dependency>
-         -->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch-hadoop-mr</artifactId>
+            <version>${eshadoop.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esotericsoftware.kryo</groupId>
+            <artifactId>kryo</artifactId>
+            <version>2.24.0</version>
+        </dependency>
     </dependencies>
 </project>
